@@ -1,0 +1,112 @@
+br_varijabli = input("Unesite koliko varijabli Xi postoji u zadatku : \n")
+brv = int(br_varijabli)
+razlika = input("Unesite razliku (koristite tacku umjesto zareza) : \n")
+raz= float(razlika)
+
+
+def sqrt(broj):
+    pola = broj/2
+    preciznost=0.01
+
+    while abs(broj-(pola**2)) > preciznost :
+             pola=(pola+(broj/pola))/2
+    return pola
+
+
+
+
+sumafi = 0
+sumafixi = 0
+sumafixixi = 0
+maxfi = 0
+
+# Unos elemenata Ri liste
+i=0
+listari = []
+while (i < brv ):
+    ri = input("Upisite varijablu Ri ( Ri = (Xi1 + Xi2)/2 ) :  " )
+    listari.append(float(ri))
+    i+=1
+
+# Unos elementa Fi liste
+i=0
+listafi = []
+while (i < brv ):
+    n = input("Upisite varijablu Fi :  " )
+    listafi.append(float(n))
+    sumafi+=listafi[i]
+    i+=1
+
+# Lista Fi*Xi
+i=0
+listafixi = []
+while (i<brv):
+    listafixi.append(listari[i]*listafi[i])
+    sumafixi+= (listari[i]*listafi[i])
+    i+=1
+
+
+# Lista Fi*(Xi*Xi)
+i=0
+listafixikv = []
+while (i<brv):
+    listafixikv.append(listafi[i] * ( listari[i] * listari[i] ))
+    sumafixixi+= (listafi[i] * ( listari[i] * listari[i] ))
+    i+=1
+
+
+# Lista kumulus
+i=1
+listakum = [listafi[0],]
+while (i<brv):
+    listakum.append(listafi[i] + listakum[i-1] )
+    i+=1
+
+
+# Ispis titlova
+print("\n \n \n \n Kraj unosa ! \n")
+print("Izrada zadatka \n")
+print("------------------------------------------------------------------------------------------------------------------------- \n")
+print("\n \n \n Prva kolona - Xi")
+print("Druga kolona - Fi")
+print("Treca kolona - Ri")
+print("Cetvrta kolona - Fi*Xi")
+print("Peta kolona - Fi*(Xi**)")
+print("Sesta kolona - Kumulus \n \n")
+print("TABELA \n")
+print("------------------------------------------------------------------------------------------------------------------------- \n")
+
+# Ispis 1. reda
+m=0
+while (m < brv) :
+    prvired = [    listari[m]-raz    ,"-" ,    listari[m]+raz    ,"|",    listafi[m]    ,"|",    listari[m]    ,"|",    listafixi[m]    , "|",    listafixikv[m]    ,"|",    listakum[m]    ]
+    print( prvired)
+    print("\n -------------------------------------------------------------------------------------------------------------------------")
+    m+=1
+
+# Ispis suma
+print("\n \n Suma fi varijabli iznosi : ")
+print(sumafi)
+print("Suma fi*xi iznosi : ")
+print(sumafixi)
+print("Suma fi*(xi*xi) iznosi : ")
+print(sumafixixi,"\n \n \n")
+
+# ispis glavne formule zadatka
+print("Kv = standardna devijacija / aritmeticka sredina \n \n ")
+
+# Izracunavanje aritmeticke sredine
+aritsr = sumafixi / sumafi
+print("Aritmeticka sredina = sumafixi / sumafi")
+print("Aritmeticka sredina = ", sumafixi,"/",sumafi)
+print("Aritmeticka sredina = ",aritsr,"\n \n")
+
+#Izracunavanje standardne devijacije
+kvstde = ((sumafixixi/sumafi)-(aritsr*aritsr))
+print("Kvadrat standardne devijacije = (sumafixixi / sumafi ) - aritsr * aritsr)")
+print("Kvadrat standardne devijacije = (",sumafixixi,"/",sumafi,") - ",aritsr,"*",aritsr)
+print(kvstde,"\n \n")
+print("Standardna devijacija = Korijen iz ",kvstde)
+print("=",sqrt(kvstde),"\n \n")
+print("Kv = ",sqrt(kvstde),"/", aritsr)
+print("=", sqrt(kvstde) / aritsr)
