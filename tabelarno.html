@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forma</title>
+  <style>
+    body{
+      background-color:#183666;
+    }
+
+    .tabela{
+      background-color: #183666;
+      margin: auto;
+      border: 2px solid #a6c0ea;
+      width: 100%;
+    }
+
+    .header {
+    text-color:white;
+      text-weight:400;
+      background-color: #183666;
+      margin: auto;
+      text-align: center;
+      border: 2px solid #a6c0ea;
+      border-bottom: none;
+    }
+
+    .ime, .imeph , .prezime, .prezimeph, .bi, .biph{
+        height: 40px;
+
+    }
+
+    .ime, .imeph , .prezime, .prezimeph, .bi, .biph , .smjer , .smjer2 , .grad , .grad2 , .sj , .sj2{
+        border: 1px solid #a6c0ea;
+        margin: 0px;
+        background-color: #183666;
+    }
+
+    .prazno{
+        height:100px;
+        width: 25px;
+        border: 1px solid #a6c0ea;
+
+    }
+     .komentar{
+        text-align:center;
+        margine: none;
+        border: 1px solid #a6c0ea;
+        padding-bottom: 20px;
+     }
+
+     .prazno2{
+        height: 10px;
+        background-color: #010f26;
+     }
+
+     .prilog , .pp , .prazno2 , .upload{
+        border: 1px solid #a6c0ea;
+     }
+
+    .upload{
+        text-align: right;
+
+    }
+
+    .forma{
+
+      text-weight:400;
+      background-color: #183666;
+      margin: auto;
+      text-align: center;
+      border: 1px solid #a6c0ea;
+      border-bottom: 2px solid #a6c0ea;
+
+    }
+
+  </style>
+</head>
+<body>
+
+
+<table class="tabela">
+  <tr>
+      <div class="header"><b>MARKO GORONJA 4-14 RPI</b></div>
+  </tr>
+  <tr>
+      <td class="ime"> <b>Ime</b> </td>
+    <td class="imeph"><input type="text"  placeholder="Ime"    name="ime"></td>
+    <td class="prezime">Prezime</td>
+    <td class="prezimeph"><input type="password"  placeholder="Prezime"   name="prezime"></td>
+    <td class="bi">Broj indeksa</td>
+    <td class="biph"><input type="text"  placeholder="Broj indeksa"    name="indeks"></td>
+  </tr>
+  <tr>
+    <td class="smjer">Smjer</td>
+    <td>
+        <form action="" class="smjer2">
+            <input type="checkbox" name="smjer1" value="Poslovna informatika">Poslovna informatika<br>
+            <input type="checkbox" name="smjer2" value="Inform.Inzenjerstvo">Inform.Inzenjerstvo<br>
+            <input type="checkbox" name="smjer3" value="Nast.Informatika">Nast.Informatika<br>
+        </form>
+    </td>
+    <td class="grad">Grad</td>
+    <td class="grad2">
+        <select name="gradovi">
+              <option value="Banja Luka">Banja Luka</option>
+              <option value="Prijedor">Prijedor</option>
+              <option value="Trebinje">Trebinje</option>
+            </select></td>
+    <td class="sj">Strani jezici</td>
+      <td class="sj2">
+          <form action="">
+              <input type="checkbox" name="jezik1" value="Engleski">Engleski<br>
+              <input type="checkbox" name="jezik2" value="Njemacki">Njemacki<br>
+              <input type="checkbox" name="jezik3" value="Ruski">Ruski<br>
+          </form>
+      </td>
+  </tr>
+  <tr>
+      <td class="prazno"></td>
+      <td colspan="4" class="komentar">
+          <p>Komentar</p><br>
+          <textarea name="kom" rows="5" cols="120">    </textarea>
+      </td>
+      <td class="slika"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/200px-HTML5_logo_and_wordmark.svg.png" alt="Ubacena slika"> </td>
+
+  </tr>
+  <tr>
+
+      <td colspan="6" class="prazno2"></td>
+
+  </tr>
+
+  <tr>
+
+      <td class="pp"></td>
+      <td class="prilog">Prilozi CV</td>
+      <td colspan="3" class="upload">
+          <form action="upload.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="fajlzaaploud" id="fajl">
+
+          </form>
+
+      </td>
+      <td class="pp"></td>
+  </tr>
+
+    <tr>
+
+        <td colspan="6" class="forma">FORMA BR. 37</td>
+    </tr>
+</table>
+
+
+
+</body>
+
+</html>
