@@ -1,3 +1,7 @@
+# Program koji izracunava standardnu devijaciju iz podataka unesenih u tabelu
+
+
+
 br_varijabli = input("Unesite koliko varijabli Xi postoji u zadatku : \n")
 brv = int(br_varijabli)
 razlika = input("Unesite razliku (koristite tacku umjesto zareza) : \n")
