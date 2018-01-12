@@ -1,0 +1,46 @@
+import bs4
+from bs4 import BeautifulSoup as soup
+from urllib.request import urlopen as uReq
+
+my_url = 'http://rotoworld.com/playernews/nba/basketball-player-news?ls=roto:nba:gnav'
+
+uClient = uReq(my_url)
+page_html = uClient.read()
+uClient.close()
+
+page_soup = soup(page_html, "html.parser")
+
+containers = page_soup.findAll("div",{"class":"pb"})
+
+filename = "igraci_novosti.ods"
+f = open(filename,"w")
+headers = "Igrac , Novosti, Detaljnije,\n"
+f.write(headers)
+
+
+imefajla = "igraci.txt"
+fd = open(imefajla,"w")
+fd.write("IGRACI - NOVOSTI \n\n\n\n")
+
+
+
+
+for container in containers:
+
+    igrac = container.div.div.a.text.strip()
+
+    report_container = container.findAll("div", {"class": "report"})
+    report = report_container[0].text.strip()
+
+    impact_container = container.findAll("div", {"class": "impact"})
+    impact = impact_container[0].text.strip()
+
+    print(igrac)
+    print(report)
+    print(impact)
+
+    f.write(igrac + "," + report + "," + impact + "\n")
+    fd.write(igrac + "\n...................................................................\n" + report + "\n...................................................................\n" + impact + "\n...................................................................\n\n\n\n")
+fd.close()
+f.close()
+
