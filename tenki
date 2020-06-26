@@ -9,7 +9,7 @@ int main()
  int a[5][5], i ,j;
  for( i = 0; i < 5; ++i)
   {for( j = 0;  j < 5; ++j)
-     {a[i][j] = rand();}
+     {a[i][j] = rand() % 25 + 25;}
   }
   
  for( i = 0; i < 5; ++i)
@@ -17,6 +17,8 @@ int main()
      std::cout<<a[i][j]<<'\t';
    std::cout<<'\n';
  }
+ 
+ 
  
  return 1;
 }
