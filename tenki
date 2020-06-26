@@ -1,0 +1,22 @@
+#include<iostream>
+#include<stdlib.h>
+#include<time.h>
+
+using namespace std;
+int main()
+{
+ srand(time(0));
+ int a[5][5], i ,j;
+ for( i = 0; i < 5; ++i)
+  {for( j = 0;  j < 5; ++j)
+     {a[i][j] = rand();}
+  }
+  
+ for( i = 0; i < 5; ++i)
+  {for( j = 0; j < 5; ++j)
+     std::cout<<a[i][j]<<'\t';
+   std::cout<<'\n';
+ }
+ 
+ return 1;
+}
